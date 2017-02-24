@@ -1,0 +1,60 @@
+<center><div ng-controller="tarefaController" style="width: 40%" >
+
+    <!--{{listas}}-->
+    <h1>Criar Tarefa</h1>
+    <!--Nome: <input type="text" ng-model="tarefa.nome"/><br/>-->
+    Nome:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+        <input type="text" class="form-control" ng-model="tarefa.nome" placeholder="Nome da Tarefa" id="edtNome"/>
+    </div>
+
+
+    Data:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input type="text" class="form-control" ng-model="tarefa.data" placeholder="dd-mm-aaaa" id="edtData"/>
+    </div>
+
+
+    Descricao:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+        <input type="text" class="form-control" ng-model="tarefa.descricao" placeholder="Descrição da Tarefa" id="edtDescricao"/>
+    </div>
+
+
+    <!--Prioridade: <input type="text" class="form-control" ng-model="tarefa.prioridade" placeholder="Prioridade da Tarefa"/>-->
+    Prioridade:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span>
+        <select class="form-control" ng-model="tarefa.prioridade" id="edtPrioridade">
+            <option value="danger">A</option>
+            <option value="info">M</option>
+            <option value="success">B</option>
+        </select>
+    </div>
+
+
+    Categoria:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+        <input type="text" class="form-control" ng-model="tarefa.categoria" placeholder="Categoria da Tarefa" id="edtCategoria"/>
+    </div>
+
+
+    <!--Nome da Lista: <input type="text" class="form-control" ng-model="tarefa.nomeLista" placeholder="Nome da Lista"/><br/>-->
+    Nome da Lista:
+    <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>
+        <select class="form-control" name="repeatSelect" id="edtNomeLista" ng-model="tarefa.nomeLista">
+            <option value="">Escolha a lista para a tarefa</option>
+            <option ng-repeat="option in listas" value="{{option.nome}}">{{option.nome}}</option>
+        </select>
+    </div>
+    <input type="button"  ng-disabled="!tarefa.nome || !tarefa.data || !tarefa.descricao || !tarefa.prioridade || !tarefa.categoria || !tarefa.nomeLista" class="btn btn-primary btn-block" value="salvar" ng-click="criaTarefa()" id="btnSalvar"/>
+
+
+
+</div>
+</center>

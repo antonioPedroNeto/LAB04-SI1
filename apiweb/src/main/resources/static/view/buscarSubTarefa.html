@@ -1,0 +1,36 @@
+<center>
+    <div  style="width: 40%">
+
+
+        <!--{{subTarefa}}-->
+        <h1>SubTarefa</h1>
+    </div>
+    <div style="width: 65%" >
+
+        <table class="table" id="listaAtividade">
+
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Descricao</th>
+                <th>Categoria</th>
+                <th>Nome da Tarefa</th>
+                <th>Situação</th>
+                <th></th>
+                <th></th>
+
+
+            </tr>
+            <tr class="{{subTarefa.prioridade}}">
+                <td>{{subTarefa.nome}}</td>
+                <td>{{subTarefa.data}}</td>
+                <td>{{subTarefa.descricao}}</td>
+                <td>{{subTarefa.categoria}}</td>
+                <td>{{subTarefa.nomeTarefa}}</td>
+                <td><img src="./imagens/{{subTarefa.complete}}.png"/></td>
+                <td><a href="/editarSubTarefa"><input type="button" value="editarSubTarefa"></a> </td>
+                <td><input type="button" class="btn btn-danger btn-block" value="Remover SubTarefa" ng-click="removerSubTarefa()" /></td>
+            </tr>
+        </table>
+    </div>
+</center>

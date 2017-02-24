@@ -1,0 +1,95 @@
+<center>
+    <div style="width: 40%">
+
+
+        <!--{{tarefas}}-->
+
+        <!--{{tarefaEditada.nome}}-->
+
+        <h2>Editar uma Tarefa</h2>
+        Nome:
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+            <input type="text" class="form-control" placeholder="Nome da Tarefa"  ng-model="tarefa.nome" />
+        </div>
+        <input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarNomeTarefa()"/>
+
+        Data:
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+            <input type="text" class="form-control" placeholder="dd-mm-aaaa" ng-model="tarefa.data" />
+        </div>
+        <input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarDataTarefa()"/>
+
+        Descricao:
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            <input type="text" class="form-control" placeholder="Descricao da Tarefa" ng-model="tarefa.descricao" />
+        </div>
+        <input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarDescricaoTarefa()"/>
+
+        <!--Prioridade: <input type="text" class="form-control" placeholder="Prioridade da Tarefa" ng-model="tarefa.prioridade"/>-->
+        Prioridade:
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-fire"></i></span>
+            <select class="form-control" ng-model="tarefa.prioridade">
+                <option value="danger">A</option>
+                <option value="info">M</option>
+                <option value="success">B</option>
+            </select>
+        </div>
+        <input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarPrioridadeTarefa()"/>
+
+        Categoria:
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+            <input type="text" class="form-control" placeholder="Categoria da Tarefa" ng-model="tarefa.categoria"/>
+        </div>
+        <input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarCategoriaTarefa()"/>
+
+        <!--Nome da Lista: <input type="text" class="form-control" placeholder="Nome da Lista" ng-model="tarefa.nomeLista"/>-->
+        <!--Nome da Lista:-->
+        <!--<div class="input-group">-->
+            <!--<span class="input-group-addon"><i class="glyphicon glyphicon-th-list"></i></span>-->
+            <!--<select class="form-control" name="repeatSelect" id="repeatSelect" ng-model="tarefa.nomeLista">-->
+                <!--<option value="">Escolha a lista para a tarefa</option>-->
+                <!--<option ng-repeat="option in listas" value="{{option.nome}}">{{option.nome}}</option>-->
+            <!--</select>-->
+        <!--</div>-->
+        <!--<input type="button" class="btn btn-primary btn-block" value="salvar" ng-click="editarNomeTarefa()"/>-->
+
+
+
+
+    </div>
+
+
+
+    <!--{{tarefa.nome +' pertence a lista '+ tarefa.nomeLista}}-->
+
+    <div style="width: 65%" >
+
+        <table class="table" id="listaAtividade">
+
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Descricao</th>
+                <th>Categoria</th>
+                <th>Nome da Lista</th>
+                <th></th>
+            </tr>
+            <tr ng-repeat="tarefa in tarefas" class="{{tarefa.prioridade}}">
+                <td>{{tarefa.nome}}</td>
+                <td>{{tarefa.data}}</td>
+                <td>{{tarefa.descricao}}</td>
+                <td>{{tarefa.categoria}}</td>
+                <td>{{tarefa.nomeLista}}</td>
+                <td><input type="button" class="btn btn-primary btn-block" value="editar" ng-click="editarTarefa(tarefa)"/></td>
+            </tr>
+
+        </table>
+    </div>
+
+    </div>
+</center>

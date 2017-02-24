@@ -1,0 +1,8 @@
+appLab.controller("listaController", function () {
+
+
+
+
+
+
+});

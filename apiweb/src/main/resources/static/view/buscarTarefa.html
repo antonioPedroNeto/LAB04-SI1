@@ -1,0 +1,95 @@
+<center>
+    <div  style="width: 40%">
+
+        {{subTarefa}}
+        <!--{{tarefa}}-->
+        <!--{{tarefas}}-->
+        <h1>Buscar Tarefa(s)</h1>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+            <input type="text" class="form-control" placeholder="Nome da Tarefa"/>
+        </div>
+        <br/>
+        <input type="button" class="btn btn-primary btn-block" value="Buscar"  ng-click="buscarTarefa()">
+
+
+    </div>
+
+    <!--variavel tipoBusca: {{tipoBusca}}<br/>-->
+    <!--variavel valorFiltro: {{valorFiltro}}<br/>-->
+    <!--variavel atributoParaFiltro: {{atributoParaFiltro}}<br/>-->
+
+    <div>
+        <table>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="form-control" placeholder="Filtro" ng-model="valorFiltro"/>
+                </td>
+                <td>
+                    <select class="form-control" ng-model="atributoParaFiltro">
+                    <option value="nome" >Nome</option>
+                    <option value="data" >Data</option>
+                    <option value="categoria" >Categoria</option>
+                    <option value="descricao" >Descricao</option>
+                    <option value="nomeLista" >Nome da lista</option>
+                    <option value="prioridade" >Prioridade</option>
+                    <option value="complete" >Situacao</option>
+                </select>
+                </td>
+                <td>
+                    <input type="button" class="btn btn-primary btn-block" value="Filtrar"  ng-click="filtro()">
+                </td>
+            </tr>
+
+
+
+
+        </table>
+
+
+    </div>
+    <div style="width: 65%" >
+
+        <table class="table" id="listaAtividade">
+
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Descricao</th>
+                <th>Categoria</th>
+                <th>Nome da Lista</th>
+                <th>Situação</th>
+                <th>SubTarefas</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+            <tr ng-repeat="tarefa in tarefas | filter:tipoBusca" class="{{tarefa.prioridade}}">
+                <td>{{tarefa.nome}}</td>
+                <td>{{tarefa.data}}</td>
+                <td>{{tarefa.descricao}}</td>
+                <td>{{tarefa.categoria}}</td>
+                <td>{{tarefa.nomeLista}}</td>
+                <td><img src="./imagens/{{tarefa.complete}}.png" ng-click="marcarTarefa(tarefa.nome, tarefa.nomeLista)"/></td>
+                <td>
+                    <select class="form-control" ng-model="subTarefa.nome">
+                        <option ng-repeat="subTarefa in tarefa.subTarefas" value="{{subTarefa.nome}}" >{{subTarefa.nome}}</option>
+                    </select>
+                </td>
+
+                <td>
+                    <a href="/buscarSubTarefa/{{subTarefa.nome}}"><input type="button" class="btn btn-primary btn-block" value="SubTarefa" ng-click="buscarSubTarefa()"/></a>
+                </td>
+
+                <td>
+                    <input type="button" class="btn btn-danger btn-block" value="Remover Tarefa" ng-click="excluirTarefa(tarefa.nome, tarefa.nomeLista)" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>
